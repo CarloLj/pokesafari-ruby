@@ -1,0 +1,15 @@
+<div>
+    <center>
+        <h1>Pokesafari!</h1>
+        <h2>Numero de pokemones en el safari: <%= @numero_pokemones %></h2>
+        <img src="https://e1.pxfuel.com/desktop-wallpaper/811/142/desktop-wallpaper-1141x700px-nidoking-nidoking.jpg"
+        alt="Pokesfari"
+        width="400"
+        height="341">
+        <div>
+            <input type="text" id="name" name="name" required
+                minlength="4" maxlength="15" size="15" placeholder="Ingresa tu nombre">
+            <%= button_to "Encounter", :action => "new_encounter", :method => :post %>
+        </div>
+    </center>
+</div>
