@@ -1,1 +1,25 @@
-<h1><%= @trainer.name %></h1>
+<center>
+    <h1><%= PokeApi.get(pokemon: @pokemon_id).name %></h1>
+    <img src=<%= PokeApi.get(pokemon: @pokemon_id).sprites.front_default %>
+    width = 10% 
+    height= 10% />
+
+    <h2>Pokemones capturados</h2>
+    <% @trainer.pokemons.each do |pokemon| %>
+    <p>
+        <strong>Pokemon:</strong>
+        <%= pokemon.pokemon_id %>
+    </p>
+
+    <% end %>
+    <%= form_with model: [@trainer, @trainer.pokemons.build] do |form| %>
+        <div>
+          <%= form.hidden_field :pokemon_id, value: @pokemon_id%>
+
+        </div>
+        <div>
+          <%= form.submit "Next Pokemon" %>
+        </div>
+      <% end %>
+      
+</center>

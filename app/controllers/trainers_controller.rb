@@ -1,12 +1,13 @@
 class TrainersController < ApplicationController
   def index
     @numero_pokemones = POKEMON_COUNT
-    @pokemon_id = rand(@numero_pokemones)
     @trainer = Trainer.new
   end
 
   def show
+    @numero_pokemones = POKEMON_COUNT
     @trainer = Trainer.find(params[:id])
+    @pokemon_id = rand(@numero_pokemones)
   end
 
   def new
