@@ -1,50 +1,104 @@
 <center>
     <h1><%= PokeApi.get(pokemon: @pokemon_id).name %></h1>
+
     <img src=<%= PokeApi.get(pokemon: @pokemon_id).sprites.front_default %>
-    width = 10% 
+    width = 10%
     height= 10% />
-    
-    <p>
-        <strong>Weight:</strong>
-        <%= PokeApi.get(pokemon: @pokemon_id).weight %>
-    </p>
-    
-    <strong>Types:</strong>
-    
-    <% @types.each do |type| %>
-    <p>
-        <%= type.type.name %>
-    </p>
-    <% end %>
+  
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Weight</th>
+          <th>Types</th>
+          <th>Habilities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= PokeApi.get(pokemon: @pokemon_id).weight %></td>
+          <td>
+            <table class="styled-table">
+              <tbody>
+                <tr>
+                  <% @types.each do |type| %>
+                    <td>
+                        <%= type.type.name %>
+                    </td>
+                  <% end %>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <table class="styled-table">
+              <tbody>
+                <tr>
+                  <% @abilities.each do |ability| %>
+                    <td>
+                        <%= ability.ability.name %>
+                    </td>
+                  <% end %>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h3>Moves</h3>
 
-    <strong>Abilities:</strong>
-    <% @abilities.each do |ability| %>
-    <p>
-        <%= ability.ability.name %>
-    </p>
-    <% end %>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @moves[0].move.name%></td>
+        </tr>
+        <tr>
+          <td><%= @moves[1].move.name%></td>
+        </tr>
+        <tr>
+          <td><%= @moves[2].move.name%></td>
+        </tr>
+        <tr>
+          <td><%= @moves[3].move.name%></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <strong>Moves:</strong>
-    <p><%= @moves[0].move.name%></p>
-    <p><%= @moves[1].move.name%></p>
-    <p><%= @moves[2].move.name%></p>
-    <p><%= @moves[3].move.name%></p>
-    
-    <h2>Caught Pokemons</h2>
-    <% @trainer.pokemons.each do |pokemon| %>
-    <p>
-      <%= PokeApi.get(pokemon: pokemon.pokemon_id).name %>
-    </p>
+    <h3>Pokemon caught</h3>
 
-    <% end %>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Pokemon name</th>
+          <th>Pokedex number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @trainer.pokemons.each do |pokemon| %>
+        <tr>
+          <td><%= PokeApi.get(pokemon: pokemon.pokemon_id).name %></td>
+          <td><%= pokemon.pokemon_id %></td>
+        </tr>
+        <% end %>
+      <tbody>
+    </table>
+
     <%= form_with model: [@trainer, @trainer.pokemons.build] do |form| %>
-        <div>
-          <%= form.hidden_field :pokemon_id, value: @pokemon_id%>
+      <div>
+        <%= form.hidden_field :pokemon_id, value: @pokemon_id%>
 
-        </div>
-        <div>
-          <%= form.submit "Next Pokemon" %>
-        </div>
-      <% end %>
+      </div>
+
+      &nbsp
+      <div>
+        <button onclick="form.submit" class="button-77" role="button">Capture Pokemon</button>
+      </div>
+    <% end %>
       
 </center>
