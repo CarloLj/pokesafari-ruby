@@ -77,6 +77,7 @@
         <tr>
           <th>Pokemon name</th>
           <th>Pokedex number</th>
+          <th>Image</th>
         </tr>
       </thead>
       <tbody>
@@ -84,6 +85,10 @@
         <tr>
           <td><%= PokeApi.get(pokemon: pokemon.pokemon_id).name %></td>
           <td><%= pokemon.pokemon_id %></td>
+          <td><img src=<%= PokeApi.get(pokemon: pokemon.pokemon_id).sprites.front_default %>
+            width = 50px
+            height= 50px />
+          </td>
         </tr>
         <% end %>
       <tbody>
