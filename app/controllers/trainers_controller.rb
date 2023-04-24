@@ -8,6 +8,9 @@ class TrainersController < ApplicationController
     @numero_pokemones = POKEMON_COUNT
     @trainer = Trainer.find(params[:id])
     @pokemon_id = rand(@numero_pokemones)
+    @abilities = PokeApi.get(pokemon: @pokemon_id).abilities
+    @types = PokeApi.get(pokemon: @pokemon_id).types
+    @moves = PokeApi.get(pokemon: @pokemon_id).moves
   end
 
   def new

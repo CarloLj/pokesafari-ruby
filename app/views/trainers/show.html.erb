@@ -3,12 +3,37 @@
     <img src=<%= PokeApi.get(pokemon: @pokemon_id).sprites.front_default %>
     width = 10% 
     height= 10% />
+    
+    <p>
+        <strong>Weight:</strong>
+        <%= PokeApi.get(pokemon: @pokemon_id).weight %>
+    </p>
+    
+    <strong>Types:</strong>
+    
+    <% @types.each do |type| %>
+    <p>
+        <%= type.type.name %>
+    </p>
+    <% end %>
 
-    <h2>Pokemones capturados</h2>
+    <strong>Abilities:</strong>
+    <% @abilities.each do |ability| %>
+    <p>
+        <%= ability.ability.name %>
+    </p>
+    <% end %>
+
+    <strong>Moves:</strong>
+    <p><%= @moves[0].move.name%></p>
+    <p><%= @moves[1].move.name%></p>
+    <p><%= @moves[2].move.name%></p>
+    <p><%= @moves[3].move.name%></p>
+    
+    <h2>Caught Pokemons</h2>
     <% @trainer.pokemons.each do |pokemon| %>
     <p>
-        <strong>Pokemon:</strong>
-        <%= pokemon.pokemon_id %>
+      <%= PokeApi.get(pokemon: pokemon.pokemon_id).name %>
     </p>
 
     <% end %>
