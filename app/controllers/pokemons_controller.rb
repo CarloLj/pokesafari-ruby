@@ -1,8 +1,8 @@
 class PokemonsController < ApplicationController
-  def create
-      @trainer = Trainer.find(params[:trainer_id])
+    def create
+      @trainer = Current.user
       @pokemon = @trainer.pokemons.create(pokemon_params)
-      redirect_to trainer_path(@trainer)
+      redirect_to '/users'
     end
   
     private

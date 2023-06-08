@@ -13,10 +13,10 @@
 ActiveRecord::Schema[7.0].define(version: 2023_05_22_140901) do
   create_table "pokemons", force: :cascade do |t|
     t.string "pokemon_id"
-    t.integer "trainer_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["trainer_id"], name: "index_pokemons_on_trainer_id"
+    t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -27,11 +27,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_140901) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.datetime "password_digest"
-    t.string "confirmed_at"
+    t.string "password_digest"
+    t.datetime "confirmed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "pokemons", "trainers"
+  add_foreign_key "pokemons", "users"
 end

@@ -4,6 +4,7 @@ module Authentication
     included do
       before_action :current_user
       helper_method :current_user
+      helper_method :user_signed_in?
     end
   
     def login(user)
@@ -16,7 +17,7 @@ module Authentication
     end
   
     def redirect_if_authenticated
-      redirect_to root_path, alert: "You are already logged in." if user_signed_in?
+      redirect_to users_path, alert: "You are already logged in." if user_signed_in?
     end
   
     private

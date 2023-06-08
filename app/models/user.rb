@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_many :pokemons
+
     CONFIRMATION_TOKEN_EXPIRATION = 10.minutes
     PASSWORD_REST_TOKEN_EXPIRATION = 10.minutes
     MAILER_FROM_EMAIL = "no-reply@example.com"

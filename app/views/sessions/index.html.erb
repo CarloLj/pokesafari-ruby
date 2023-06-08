@@ -1,0 +1,44 @@
+<%= stylesheet_link_tag 'indexStyle' %>
+
+
+<div>
+    <center>
+        <div class="container">
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c861d306-8f42-4864-ab2e-61a271518c8a/df3fag9-3dc0d06f-2d67-4606-9365-fa0f3bc97e94.png/v1/fill/w_1280,h_1281/safari_ball_by_ace_zeroartic_df3fag9-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MSIsInBhdGgiOiJcL2ZcL2M4NjFkMzA2LThmNDItNDg2NC1hYjJlLTYxYTI3MTUxOGM4YVwvZGYzZmFnOS0zZGMwZDA2Zi0yZDY3LTQ2MDYtOTM2NS1mYTBmM2JjOTdlOTQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.x3TeMU5t5s0hi1mCt9JajSBKNocynEPQOB3D05yKSU8"
+            alt="pokeball"
+            height = "100"
+            width = "100">
+            <h1>Pokesafari!</h1>
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c861d306-8f42-4864-ab2e-61a271518c8a/df3fag9-3dc0d06f-2d67-4606-9365-fa0f3bc97e94.png/v1/fill/w_1280,h_1281/safari_ball_by_ace_zeroartic_df3fag9-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MSIsInBhdGgiOiJcL2ZcL2M4NjFkMzA2LThmNDItNDg2NC1hYjJlLTYxYTI3MTUxOGM4YVwvZGYzZmFnOS0zZGMwZDA2Zi0yZDY3LTQ2MDYtOTM2NS1mYTBmM2JjOTdlOTQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.x3TeMU5t5s0hi1mCt9JajSBKNocynEPQOB3D05yKSU8"
+            alt="pokeball"
+            height = "100"
+            width = "100">
+            </div>
+        <h2>Numero de pokemones en el safari: <%= @numero_pokemones %></h2>
+        <img src="https://samurai-gamers.com/wp-content/uploads/2016/11/snorlax-berries.png"
+        alt="Pokesfari"
+        width="400"
+        height="341">
+        <div>
+            <%= render "form" %>
+            <%= link_to 'Create a new account', sign_up_path , class: 'button alt' %>
+        </div>
+        <div class="row">
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+            <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
+        </div>
+    </center>
+</div>
