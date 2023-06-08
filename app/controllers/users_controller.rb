@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :redirect_if_authenticated, only: [:create, :new]
-
+  before_action :authenticate_user, only: [:index]
+  
   def index
     @numero_pokemones = POKEMON_COUNT
     @pokemon_id = rand(@numero_pokemones)

@@ -1,11 +1,8 @@
 class SessionsController < ApplicationController
   before_action :redirect_if_authenticated, only: [:index, :create, :new]
-
-  def index
-    @numero_pokemones = POKEMON_COUNT
-  end
-
+  
   def create
+    @numero_pokemones = POKEMON_COUNT
     @user = User.find_by(email: params[:user][:email].downcase)
     if @user
       if @user.unconfirmed?
@@ -19,7 +16,7 @@ class SessionsController < ApplicationController
       end
     else
       flash.now[:alert] = "Incorrect email or password."
-      render :new, status: :unprocessable_entity
+        render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,5 +26,6 @@ class SessionsController < ApplicationController
   end
 
   def new
+    @numero_pokemones = POKEMON_COUNT
   end
 end
