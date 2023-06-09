@@ -26,6 +26,9 @@
         <div>
             <%= link_to 'Want to confirm your email?', '/confirmations/new' , class: 'button alt' %>
         </div>
+        <div>
+            <%= link_to 'Want to restore your password?', new_password_path , class: 'button alt' %>
+        </div>
         <div class="row">
             <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
             <img src=<%= PokeApi.get(pokemon: rand(@numero_pokemones)).sprites.front_default %> />
